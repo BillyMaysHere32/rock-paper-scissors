@@ -8,21 +8,41 @@
 </head>
 <body>
     <script>
+        //console.log(computerSelection);
+
         function getComputerChoice() {
-        let rock = "Rock";
-        let scissors = "Scissors";
-        let paper = "Paper";
-        let randomNumber = Math.random(); 
-            if (randomNumber <= 0.33) {
-                return rock;
-            } else if (randomNumber <= 0.66) {
-                return scissors;
-            } else {
-                return paper;
-             }           
+            let rock = "Rock";
+            let scissors = "Scissors";
+            let paper = "Paper";
+            let randomNumber = Math.random(); 
+                if (randomNumber <= 0.33) {
+                    return rock;
+             } else if (randomNumber <= 0.66) {
+                    return scissors;
+                } else {
+                    return paper;
+                }           
         }
 
-        let computerSelection = getComputerChoice();
+        function playRound(playerSelection, computerSelection) {
+            let tie = "tie";
+            let win = "win";
+            let lose = "lose";
+
+            if (playerSelection === computerSelection) {
+                return tie;
+            } else if ((playerSelection === "Rock") && (computerSelection === "Scissors")) { 
+                return win;
+            } else {
+                return lose;
+             }        
+
+
+        }
+
+        const playerSelection = "Rock";
+        const computerSelection = getComputerChoice();
+        console.log(playRound(playerSelection, computerSelection));
 
 
     </script>
