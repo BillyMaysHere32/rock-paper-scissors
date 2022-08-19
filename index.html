@@ -24,38 +24,50 @@
                 }           
         }
 
-        function playRound(playerSelection, computerSelection) {
-            let tie = "Tie! you selected " + playerSelection + " and computer selected " + computerSelection + ".";
-            let win = "You win! you selected " + playerSelection + " and computer selected " + computerSelection + ".";
-            let lose = "You lose! you selected " + playerSelection + " and computer selected " + computerSelection + ".";
-            let incorrectAmount = "Sorry! you selected " + playerSelection + ", please select rock, paper or scissors.";
-            
-            if (playerSelection === computerSelection) {
-                return tie;
-            } else if ((playerSelection === "rock") && (computerSelection === "scissors")) { 
-                return win;
-            }  else if ((playerSelection === "scissors") && (computerSelection === "paper")) { 
-                return win;
-            }  else if ((playerSelection === "paper") && (computerSelection === "rock")) { 
-                return win;
-            }  else if ((playerSelection === "scissors") && (computerSelection === "rock")) { 
-                return lose;
-            }  else if ((playerSelection === "rock") && (computerSelection === "paper")) { 
-                return lose;
-            }  else if ((playerSelection === "paper") && (computerSelection === "scissors")) { 
-                return lose;
-            } else {
-                return incorrectAmount;
-             }        
+        game() {
+            let gameWinner = 0;
+            let gameLoser = 0;
+            let fiveGameWinner = "";
+            for (let i = 0; i < 5; i++) {
+                const computerSelection = getComputerChoice();
+                let userInput = prompt("Choose rock, paper or scissors!");
+                let playerSelection = userInput.toLowerCase();
+                alert(playRound(playerSelection, computerSelection));
 
-
+                function playRound(playerSelection, computerSelection) {
+                    let tie = "Tie! you selected " + playerSelection + " and computer selected " + computerSelection + ".";
+                    let win = "You win! you selected " + playerSelection + " and computer selected " + computerSelection + ".";
+                    let lose = "You lose! you selected " + playerSelection + " and computer selected " + computerSelection + ".";
+                    let incorrectAmount = "Sorry! you selected " + playerSelection + ", please select rock, paper or scissors.";
+                    
+                    if (playerSelection === computerSelection) {
+                        return tie;
+                    } else if ((playerSelection === "rock") && (computerSelection === "scissors")) { 
+                        gameWinner++;
+                        return win;
+                    }  else if ((playerSelection === "scissors") && (computerSelection === "paper")) { 
+                        gameWinner++;
+                        return win;
+                    }  else if ((playerSelection === "paper") && (computerSelection === "rock")) { 
+                        gameWinner++;
+                        return win;
+                    }  else if ((playerSelection === "scissors") && (computerSelection === "rock")) { 
+                        gameLoser++;
+                        return lose;
+                    }  else if ((playerSelection === "rock") && (computerSelection === "paper")) { 
+                        gameLoser++;
+                        return lose;
+                    }  else if ((playerSelection === "paper") && (computerSelection === "scissors")) { 
+                        gameLoser++;
+                        return lose;
+                    } else {
+                        return incorrectAmount;
+                    }    
+                }
+            }
         }
-
         
-        const computerSelection = getComputerChoice();
-        let userInput = prompt("Choose rock, paper or scissors!");
-        let playerSelection = userInput.toLowerCase();
-        alert(playRound(playerSelection, computerSelection));
+
 
 
 
