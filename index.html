@@ -24,7 +24,7 @@
                 }           
         }
 
-        game() {
+        function game() {
             let gameWinner = 0;
             let gameLoser = 0;
             let fiveGameWinner = "";
@@ -65,7 +65,19 @@
                     }    
                 }
             }
+
+            if (gameWinner > gameLoser) {
+                fiveGameWinner = "You Win!";
+            } else if (gameWinner < gameLoser) {
+                fiveGameWinner = "You Lose!";
+            } else {
+                fiveGameWinner = "You Tie!";
+            }
+
+            console.log("After 5 games, " + fiveGameWinner + " with " + gameWinner + " Wins "); 
         }
+
+        game();
         
 
 
