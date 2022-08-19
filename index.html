@@ -32,7 +32,9 @@
                 const computerSelection = getComputerChoice();
                 let userInput = prompt("Choose rock, paper or scissors!");
                 let playerSelection = userInput.toLowerCase();
-                alert(playRound(playerSelection, computerSelection));
+                console.log(playRound(playerSelection, computerSelection));
+                console.log("Player win total " + gameWinner);
+                console.log("Computer win total " + gameLoser);
 
                 function playRound(playerSelection, computerSelection) {
                     let tie = "Tie! you selected " + playerSelection + " and computer selected " + computerSelection + ".";
